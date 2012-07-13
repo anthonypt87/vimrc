@@ -36,6 +36,9 @@ set pastetoggle=<leader>,p
 map <leader><leader> :set hls!<bar>set hls?<CR>
 map <leader>p :set paste!<bar>set paste?<CR>
 
+" Aliases
+ab ipdb import ipdb; ipdb.set_trace()
+
 " Remap buffer movement
 map <c-h> <c-w>h
 map <c-j> <c-w>j
