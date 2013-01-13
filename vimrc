@@ -1,6 +1,21 @@
 so ~/.vim/minimal_vimrc
 
-call pathogen#infect()
+set nocompatible
+filetype off
 
-" Flags to flake8
-let g:syntastic_python_checker_args='--ignore=E501,W191'
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'vim-scripts/AutoComplPop'
+
+filetype plugin indent on
+
+" CtrlP Options
+let g:ctrlp_map = '<leader>t'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
+set wildignore+=*.pyc
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
