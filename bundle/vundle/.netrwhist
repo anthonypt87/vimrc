@@ -1,6 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/anthony/.vim'
-let g:netrw_dirhist_2='/Users/anthony/programming/programming_tools/programming_tools'
-let g:netrw_dirhist_3='/Users/anthony/programming/hyper_dump/hyper_dump'
-let g:netrw_dirhist_4='/Users/anthony/programming/hypescript/hypescript'
+let g:netrw_dirhist_cnt =0
