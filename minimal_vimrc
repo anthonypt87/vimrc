@@ -9,16 +9,15 @@ set tabstop=2
 set autoindent
 set ignorecase
 set vb " turns off visual bell
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+set history=50 " keep 50 lines of command line history
+set ruler	" show the cursor position all the time
+set showcmd	" display incomplete commands
+set incsearch " do incremental searching
 set hlsearch
 set hidden
 set backspace=indent,eol,start 
 filetype indent on " Indentation
-syntax on
-colorscheme desert
+colorscheme elflord
 
 " Status line
 set laststatus=2
@@ -48,3 +47,8 @@ map <c-l> <c-w>l
 
 " Automatically remove trailing whitespace in python files
 autocmd BufWritePre *.py :%s/\s\+$//e
+
+" Ignore certain filetypes
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
+set wildignore+=*.pyc
