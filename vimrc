@@ -1,5 +1,9 @@
 so ~/.vim/minimal_vimrc
 
+if !isdirectory(expand("~/.vim/bundle/vundle/.git"))
+	!git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+endif
+
 " Vundle setup
 set nocompatible
 filetype off " Needs to be on for vim versions < 7.4.430 (https://github.com/gmarik/vundle/issues/176)
