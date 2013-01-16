@@ -16,8 +16,9 @@ set incsearch " do incremental searching
 set hlsearch
 set hidden
 set backspace=indent,eol,start 
-filetype indent on " Indentation
+syntax on
 colorscheme elflord
+filetype plugin indent on "Tell plugins and indents about the file
 
 " Status line
 set laststatus=2
