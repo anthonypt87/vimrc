@@ -16,6 +16,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'vim-scripts/AutoComplPop'
 Bundle 'tpope/vim-surround'
+Bundle 'kien/rainbow_parentheses.vim'
 
 filetype plugin indent on " Required for vundle
 
@@ -26,3 +27,9 @@ let g:ctrlp_max_files = 200000
 
 " AutoComplPop Options
 let g:acp_behaviorPythonOmniLength = -1
+
+" Turn on Rainbow Parens by default
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces

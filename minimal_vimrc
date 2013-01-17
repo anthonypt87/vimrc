@@ -7,6 +7,7 @@ set softtabstop=2
 set shiftwidth=2
 set tabstop=2
 set autoindent
+set cindent
 set ignorecase
 set vb " turns off visual bell
 set history=50 " keep 50 lines of command line history
@@ -50,6 +51,6 @@ map <c-l> <c-w>l
 autocmd BufWritePre *.py :%s/\s\+$//e
 
 " Ignore certain filetypes
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+set wildignore+=*.so,*.swp,*.zip
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
 set wildignore+=*.pyc
