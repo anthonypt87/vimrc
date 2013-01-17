@@ -54,3 +54,7 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 set wildignore+=*.so,*.swp,*.zip
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
 set wildignore+=*.pyc
+
+" Set up omnicomplete files
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
