@@ -13,10 +13,11 @@ call vundle#rc()
 " Declare vundle bundles
 Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/syntastic'
-Bundle 'vim-scripts/AutoComplPop'
-Bundle 'tpope/vim-surround'
 Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-surround'
+Bundle 'vim-scripts/AutoComplPop'
+Bundle 'vim-scripts/YankRing.vim'
 
 filetype plugin indent on " Required for vundle
 
