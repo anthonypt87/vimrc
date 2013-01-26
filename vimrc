@@ -25,6 +25,7 @@ filetype plugin indent on " Required for vundle
 let g:ctrlp_map = '<leader>t'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_max_files = 200000
+let g:ctrlp_clear_cache_on_exit = 0
 
 " AutoComplPop Options
 let g:acp_behaviorPythonOmniLength = -1
