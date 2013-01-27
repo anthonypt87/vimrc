@@ -18,6 +18,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/AutoComplPop'
 Bundle 'vim-scripts/YankRing.vim'
+Bundle 'Lokaltog/vim-easymotion'
 
 filetype plugin indent on " Required for vundle
 
