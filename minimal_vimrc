@@ -35,7 +35,7 @@ set statusline+=%<%P                         " file position
 
 " Keyboard shortcuts
 set pastetoggle=<leader>,p
-map <leader><leader> :set hls!<bar>set hls?<CR>
+map <leader>s :set hls!<bar>set hls?<CR>
 map <leader>p :set paste!<bar>set paste?<CR>
 
 " Aliases
