@@ -58,4 +58,4 @@ set wildignore+=*.pyc
 " Set up omnicomplete files
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd Filetype python ab ifname if __name__ == '__main__'<CR>
+autocmd Filetype python ab ifname if __name__ == '__main__':<CR>
