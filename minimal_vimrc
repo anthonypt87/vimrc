@@ -17,6 +17,7 @@ set incsearch " do incremental searching
 set hlsearch
 set hidden
 set backspace=indent,eol,start 
+set wildmenu
 syntax on
 colorscheme elflord
 filetype plugin indent on "Tell plugins and indents about the file
@@ -37,6 +38,7 @@ set statusline+=%<%P                         " file position
 set pastetoggle=<leader>,p
 map <leader>s :set hls!<bar>set hls?<CR>
 map <leader>p :set paste!<bar>set paste?<CR>
+map <leader>c :!ctags -R . --language=
 
 " Aliases
 ab ipdb import ipdb; ipdb.set_trace()
