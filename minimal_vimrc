@@ -38,7 +38,7 @@ set statusline+=%<%P                         " file position
 set pastetoggle=<leader>,p
 map <leader>s :set hls!<bar>set hls?<CR>
 map <leader>p :set paste!<bar>set paste?<CR>
-map <leader>c :!ctags -R . --language=
+map <leader>c :!ctags -R --languages=
 
 " Aliases
 ab ipdb import ipdb; ipdb.set_trace()
