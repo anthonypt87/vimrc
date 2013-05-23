@@ -39,6 +39,10 @@ set pastetoggle=<leader>,p
 map <leader>s :set hls!<bar>set hls?<CR>
 map <leader>p :set paste!<bar>set paste?<CR>
 map <leader>c :!ctags -R --languages=
+noremap <leader>g :grep <C-r><C-w><CR>:cw<CR>
+noremap <leader>G :grep <C-r><C-w><CR>
+noremap <leader>0 :cn<CR>
+noremap <leader>9 :cp<CR>
 
 " Aliases
 ab ipdb import ipdb; ipdb.set_trace()
