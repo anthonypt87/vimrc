@@ -44,6 +44,8 @@ noremap gN :cp<CR>
 noremap <leader>c :!ctags -R --languages=
 noremap <leader>] :tn<CR>
 noremap <leader>[ :tp<CR>
+cnoremap %% <C-R>=expand('%:p:h')<CR>/
+noremap <leader>v :e ~/.vimrc<CR>
 
 " Abbreviations
 autocmd Filetype python ab ipdb import ipdb; ipdb.set_trace()
