@@ -35,17 +35,19 @@ set statusline+=%-14(%l,%c%V%)               " line, character
 set statusline+=%<%P                         " file position
 
 " Keyboard shortcuts
-set pastetoggle=<leader>,p
-map <leader>s :set hls!<bar>set hls?<CR>
-map <leader>p :set paste!<bar>set paste?<CR>
-map <leader>c :!ctags -R --languages=
+noremap <leader>s :set hls!<bar>set hls?<CR>
+noremap <leader>p :set paste!<bar>set paste?<CR>
 noremap <leader>g :grep <C-r><C-w><CR>:cw<CR>
-noremap <leader>G :grep <C-r><C-w><CR>
-noremap <leader>0 :cn<CR>
-noremap <leader>9 :cp<CR>
+noremap <leader>G :grep<space>
+noremap gn :cn<CR>
+noremap gN :cp<CR>
+noremap <leader>c :!ctags -R --languages=
+noremap <leader>] :tn<CR>
+noremap <leader>[ :tp<CR>
 
-" Aliases
-ab ipdb import ipdb; ipdb.set_trace()
+" Abbreviations
+autocmd Filetype python ab ipdb import ipdb; ipdb.set_trace()
+autocmd Filetype python ab ifname if __name__ == '__main__':<CR>
 
 " Remap buffer movement
 map <c-h> <c-w>h
@@ -58,10 +60,9 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 
 " Ignore certain filetypes
 set wildignore+=*.so,*.swp,*.zip
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exeTag
 set wildignore+=*.pyc
 
 " Set up omnicomplete files
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html set omnifunc=htmlcomplete#Complete s
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd Filetype python ab ifname if __name__ == '__main__':<CR>
