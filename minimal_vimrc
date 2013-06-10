@@ -66,5 +66,5 @@ set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exeTag
 set wildignore+=*.pyc
 
 " Set up omnicomplete files
-autocmd FileType html set omnifunc=htmlcomplete#Complete s
+autocmd FileType html set omnifunc=htmlcomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
