@@ -21,6 +21,8 @@ Bundle 'vim-scripts/YankRing.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-fugitive'
 Bundle 'flazz/vim-colorschemes'
+Bundle 'tristen/vim-sparkup'
+Bundle 'vim-scripts/closetag.vim'
 
 filetype plugin indent on " Required for vundle
 
@@ -42,3 +44,6 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+" Sparkup Options
+let g:sparkupExecuteMapping = '<leader>e'
