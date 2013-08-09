@@ -1,3 +1,4 @@
+set t_Co=256
 so ~/.vim/minimal_vimrc
 
 if !isdirectory(expand("~/.vim/bundle/vundle/.git"))
@@ -23,6 +24,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'tristen/vim-sparkup'
 Bundle 'vim-scripts/closetag.vim'
+Bundle 'vim-scripts/DetectIndent'
 
 filetype plugin indent on " Required for vundle
 
@@ -47,3 +49,6 @@ au Syntax * RainbowParenthesesLoadBraces
 
 " Sparkup Options
 let g:sparkupExecuteMapping = '<leader>e'
+
+" Startup DetectIndent automatically
+autocmd BufReadPost * :DetectIndent
