@@ -25,6 +25,7 @@ Bundle 'flazz/vim-colorschemes'
 Bundle 'tristen/vim-sparkup'
 Bundle 'vim-scripts/closetag.vim'
 Bundle 'vim-scripts/DetectIndent'
+Bundle 'Raimondi/delimitMate'
 
 filetype plugin indent on " Required for vundle
 
