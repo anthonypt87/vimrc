@@ -3,9 +3,10 @@ let mapleader='\'
 
 " Basic settings
 set number "sets numbers
-set softtabstop=2
-set shiftwidth=2
-set tabstop=2
+set softtabstop=4
+set shiftwidth=4
+set tabstop=4
+set expandtab
 set autoindent
 set cindent
 set ignorecase
@@ -59,6 +60,7 @@ map <c-l> <c-w>l
 
 " Automatically remove trailing whitespace in python files
 autocmd BufWritePre *.py :%s/\s\+$//e
+autocmd BufWritePre *.js :%s/\s\+$//e
 
 " Ignore certain filetypes
 set wildignore+=*.so,*.swp,*.zip
