@@ -27,6 +27,10 @@ Bundle 'vim-scripts/closetag.vim'
 Bundle 'vim-scripts/DetectIndent'
 Bundle 'Raimondi/delimitMate'
 Bundle 'vim-scripts/Gundo'
+Bundle 'marijnh/tern_for_vim'
+Bundle 'fatih/vim-go'
+Plugin 'FelikZ/ctrlp-py-matcher'
+Plugin 'rking/ag.vim'
 
 filetype plugin indent on " Required for vundle
 
@@ -74,3 +78,6 @@ let g:sparkupExecuteMapping = '<leader>e'
 
 " Startup DetectIndent automatically
 autocmd BufReadPost * :DetectIndent
+
+" Faster ctrl p matcher
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
