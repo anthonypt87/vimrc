@@ -17,7 +17,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-surround'
-Bundle 'vim-scripts/AutoComplPop'
+" Bundle 'vim-scripts/AutoComplPop'
 Bundle 'vim-scripts/YankRing.vim'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-fugitive'
@@ -31,6 +31,8 @@ Bundle 'marijnh/tern_for_vim'
 Bundle 'fatih/vim-go'
 Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'rking/ag.vim'
+Plugin 'tpope/vim-obsession'
+Plugin 'Valloric/YouCompleteMe'
 
 filetype plugin indent on " Required for vundle
 
