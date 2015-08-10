@@ -33,6 +33,9 @@ Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-obsession'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'tpope/vim-abolish'
+Plugin 'tpope/vim-vinegar'
 
 filetype plugin indent on " Required for vundle
 
@@ -83,3 +86,5 @@ autocmd BufReadPost * :DetectIndent
 
 " Faster ctrl p matcher
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+
+let g:jedi#completions_enabled = 0
