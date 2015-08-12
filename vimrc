@@ -88,3 +88,5 @@ autocmd BufReadPost * :DetectIndent
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 let g:jedi#completions_enabled = 0
+
+map <Space>s <Plug>(easymotion-s)
