@@ -72,3 +72,7 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
+" Put all swap files in a temp directory
+set directory^=$HOME/.vim/.tmp//
+set backupdir^=$HOME/.vim/.backup//
