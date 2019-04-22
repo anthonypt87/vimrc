@@ -33,11 +33,13 @@ Bundle 'fatih/vim-go'
 Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-obsession'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'davidhalter/jedi-vim'
+" Plugin 'Valloric/YouCompleteMe'
+" Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-vinegar'
 Bundle 'solarnz/thrift.vim'
+Bundle 'vim-scripts/netrw.vim'
+" Bundle 'Shougo/neocomplete.vim'
 " Bundle 'othree/vim-autocomplpop'
 
 " Track the engine.
@@ -67,7 +69,7 @@ noremap <leader>b :CtrlPBuffer<CR>
 noremap <leader>y :YRShow<CR>
 
 " AutoComplPop Options
-let g:acp_behaviorPythonOmniLength = -1
+" let g:acp_behaviorPythonOmniLength = -1
 
 " Turn on Rainbow Parens by default
 au VimEnter * RainbowParenthesesToggle
@@ -104,7 +106,7 @@ autocmd BufReadPost * :DetectIndent
 " Faster ctrl p matcher
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
-let g:jedi#completions_enabled = 0
+" let g:jedi#completions_enabled = 0
 
 map <Space>s <Plug>(easymotion-s)
 
@@ -116,13 +118,96 @@ if !has('gui_running')
 endif
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|nagios'
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc']
 
-let g:go_highlight_functions = 1
+" let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_fields = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_interfaces = 1
+" let g:go_highlight_structs = 1
+" let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
+let g:go_highlight_types = 1
 let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "gofmt"
+let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
 let g:go_fmt_command = "goimports"
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+nnoremap <C-w>E :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+" we want to tell the syntastic module when to run
+" we want to see code highlighting and checks when  we open a file
+" but we don't care so much that it reruns when we close the file
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:go_list_type = "quickfix"
+
+" let g:neocomplete#enable_at_startup = 1
+
+call plug#begin('~/.vim/plugged')
+Plug 'fatih/vim-go' " Amazing combination of features.
+Plug 'godoctor/godoctor.vim' " Some refactoring tools
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
+  Plug 'jodosha/vim-godebug' " Debugger integration via delve
+  Plug 'w0rp/ale'
+  " Plug 'neomake/neomake'
+  Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+endif
+call plug#end()
+" Error and warning signs.
+let g:ale_sign_error = '⤫'
+let g:ale_sign_warning = '⚠'
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+let g:ale_open_list = 1
+let g:ale_keep_list_window_open = 0
+
+
+let g:deoplete#enable_at_startup = 0
+" deoplete
+set completeopt=longest,menuone " auto complete setting
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#auto_complete_start_length = 1
+let g:deoplete#keyword_patterns = {}
+let g:deoplete#keyword_patterns['default'] = '\h\w*'
+let g:deoplete#omni#input_patterns = {}
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#align_class = 1
+" let g:syntastic_debug = 1
+
+" neomake
+" autocmd BufWritePost * Neomake
+" let g:neomake_error_sign   = {'text': '✖', 'texthl': 'NeomakeErrorSign'}
+" let g:neomake_warning_sign = {'text': '∆', 'texthl': 'NeomakeWarningSign'}
+" let g:neomake_message_sign = {'text': '➤', 'texthl': 'NeomakeMessageSign'}
+" let g:neomake_info_sign    = {'text': 'ℹ', 'texthl': 'NeomakeInfoSign'}
+" let g:neomake_go_enabled_makers = ['golint', 'govet']
+" let g:neomake_go_gometalinter_maker = {
+"   \ 'args': [
+"   \   '--tests',
+"   \   '--enable-gc',
+"   \   '--concurrency=3',
+"   \   '--fast',
+"   \   '-D', 'aligncheck',
+"   \   '-D', 'dupl',
+"   \   '-D', 'gocyclo',
+"   \   '-D', 'gotype',
+"   \   '-E', 'errcheck',
+"   \   '-E', 'misspell',
+"   \   '-E', 'unused',
+"   \   '%:p:h',
+"   \ ],
+"   \ 'append_file': 0,
+"   \ 'errorformat':
+"   \   '%E%f:%l:%c:%trror: %m,' .
+"   \   '%W%f:%l:%c:%tarning: %m,' .
+"   \   '%E%f:%l::%trror: %m,' .
+"   \   '%W%f:%l::%tarning: %m'
+"   \ }
+" autocmd! BufWritePost,BufEnter * Neomake
+" let g:neomake_open_list = 2
+Plugin 'godoctor/godoctor.vim'
+let g:python2_host_prog = '/usr/local/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'

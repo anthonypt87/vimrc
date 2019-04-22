@@ -19,6 +19,9 @@ set hlsearch
 set hidden
 set backspace=indent,eol,start 
 set wildmenu
+set lazyredraw
+set synmaxcol=128
+syntax sync minlines=256
 syntax on
 colorscheme elflord
 filetype plugin indent on "Tell plugins and indents about the file
