@@ -146,13 +146,16 @@ let g:go_list_type = "quickfix"
 call plug#begin('~/.vim/plugged')
 Plug 'fatih/vim-go' " Amazing combination of features.
 Plug 'godoctor/godoctor.vim' " Some refactoring tools
+Plug 'scrooloose/nerdcommenter'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
+  Plug 'deoplete-plugins/deoplete-jedi'
   Plug 'jodosha/vim-godebug' " Debugger integration via delve
   Plug 'w0rp/ale'
   " Plug 'neomake/neomake'
   Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+  Plug 'janko/vim-test'
 endif
 call plug#end()
 " Error and warning signs.
@@ -209,5 +212,15 @@ let g:deoplete#sources#go#align_class = 1
 " autocmd! BufWritePost,BufEnter * Neomake
 " let g:neomake_open_list = 2
 Plugin 'godoctor/godoctor.vim'
-let g:python2_host_prog = '/usr/local/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
+" let g:python2_host_prog = '/usr/local/bin/python'
+" let g:python3_host_prog = '/usr/local/bin/python3'
+let g:syntastic_python_checkers = ['python3']
+let g:ale_python_flake8_executable = 'python3'
+let g:ale_python_flake8_options = '-m flake8'
+let test#strategy = "neovim"
+" these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>

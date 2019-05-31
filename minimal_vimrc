@@ -45,7 +45,7 @@ noremap <leader>g :grep <C-r><C-w><CR>:cw<CR>
 noremap <leader>G :grep<space>
 noremap gn :cn<CR>
 noremap gN :cp<CR>
-noremap <leader>c :!ctags -R --languages=
+" noremap <leader>c :!ctags -R --languages=
 noremap <leader>] :tn<CR>
 noremap <leader>[ :tp<CR>
 cnoremap %% <C-R>=expand('%:p:h')<CR>/
