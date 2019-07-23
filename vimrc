@@ -1,5 +1,5 @@
 set t_Co=256
-so ~/.vim/minimal_vimrc
+so /Users/anthony/.config/nvim/minimal_vimrc
 
 if !isdirectory(expand("~/.vim/bundle/vundle/.git"))
 	!git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
@@ -43,10 +43,19 @@ Bundle 'vim-scripts/netrw.vim'
 " Bundle 'othree/vim-autocomplpop'
 
 " Track the engine.
-Plugin 'SirVer/ultisnips'
-
-" Snippets are separated from the engine. Add this if you want them:
 Plugin 'honza/vim-snippets'
+Plugin 'godoctor/godoctor.vim' " Some refactoring tools
+Plugin 'scrooloose/nerdcommenter'
+if has('nvim')
+  Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plugin 'zchee/deoplete-go', {'build': {'unix': 'make'}}
+  Plugin 'deoplete-plugins/deoplete-jedi'
+  Plugin 'jodosha/vim-godebug' " Debugger integration via delve
+  Plugin 'w0rp/ale'
+  " Plug 'neomake/neomake'
+  Plugin 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+  Plugin 'janko/vim-test'
+endif
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<leader>f"
@@ -143,21 +152,6 @@ let g:go_list_type = "quickfix"
 
 " let g:neocomplete#enable_at_startup = 1
 
-call plug#begin('~/.vim/plugged')
-Plug 'fatih/vim-go' " Amazing combination of features.
-Plug 'godoctor/godoctor.vim' " Some refactoring tools
-Plug 'scrooloose/nerdcommenter'
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
-  Plug 'deoplete-plugins/deoplete-jedi'
-  Plug 'jodosha/vim-godebug' " Debugger integration via delve
-  Plug 'w0rp/ale'
-  " Plug 'neomake/neomake'
-  Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
-  Plug 'janko/vim-test'
-endif
-call plug#end()
 " Error and warning signs.
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
@@ -211,7 +205,6 @@ let g:deoplete#sources#go#align_class = 1
 "   \ }
 " autocmd! BufWritePost,BufEnter * Neomake
 " let g:neomake_open_list = 2
-Plugin 'godoctor/godoctor.vim'
 " let g:python2_host_prog = '/usr/local/bin/python'
 " let g:python3_host_prog = '/usr/local/bin/python3'
 let g:syntastic_python_checkers = ['python3']
