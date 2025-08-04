@@ -1,5 +1,4 @@
-set t_Co=256
-so /Users/anthony/.config/nvim/minimal_vimrc
+" so /Users/anthony/.config/nvim/minimal_vimrc
 
 if !isdirectory(expand("~/.vim/bundle/vundle/.git"))
 	!git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
@@ -23,6 +22,7 @@ Bundle 'vim-scripts/L9'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-fugitive'
 Bundle 'flazz/vim-colorschemes'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'tristen/vim-sparkup'
 Bundle 'vim-scripts/closetag.vim'
 Bundle 'vim-scripts/DetectIndent'
@@ -66,6 +66,7 @@ let g:UltiSnipsJumpBackwardTrigger="<leader>x"
 let g:UltiSnipsEditSplit="vertical"
 
 filetype plugin indent on " Required for vundle
+syntax enable " Enable syntax highlighting
 
 " CtrlP Options
 let g:ctrlp_map = '<leader>t'
@@ -119,12 +120,18 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 map <Space>s <Plug>(easymotion-s)
 
+" Color and syntax configuration
 set t_Co=256
 set background=dark
-if !has('gui_running')
-  let g:solarized_termcolors=&t_Co
-  let g:solarized_termtrans=1
+if has('termguicolors')
+  set termguicolors
 endif
+
+if !has('gui_running')
+  let g:solarized_termcolors=256
+  let g:solarized_termtrans=0
+endif
+colorscheme solarized
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|nagios'
 " let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
@@ -161,17 +168,17 @@ let g:ale_open_list = 1
 let g:ale_keep_list_window_open = 0
 
 
-let g:deoplete#enable_at_startup = 0
+" let g:deoplete#enable_at_startup = 0
 " deoplete
 set completeopt=longest,menuone " auto complete setting
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#auto_complete_start_length = 1
-let g:deoplete#keyword_patterns = {}
-let g:deoplete#keyword_patterns['default'] = '\h\w*'
-let g:deoplete#omni#input_patterns = {}
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#sources#go#align_class = 1
+if exists('g:loaded_deoplete')
+  let g:deoplete#enable_at_startup = 1
+  call deoplete#custom#option('smart_case', v:true)
+  call deoplete#custom#option('min_pattern_length', 1)
+  call deoplete#custom#option('keyword_patterns', {'default': '\h\w*'})
+  let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+  let g:deoplete#sources#go#align_class = 1
+endif
 " let g:syntastic_debug = 1
 
 " neomake
